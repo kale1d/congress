@@ -1,12 +1,12 @@
 import React, { FC, useState, useEffect } from "react";
-import { CongressMember } from "../../models/models";
+import { CongressMember, CheckboxItems } from "../../models/models";
 import "./CongressListStyles.scss";
 import { getMembers } from "../../utils/api";
 import SearchInput from "../../components/SearchInput/SearchInput";
 
 const CongressList: FC = () => {
   const [members, setMembers] = useState<CongressMember[]>([]);
-  const [membersFiltered, setMembersFiltered] = useState([]);
+  const [membersFiltered, setMembersFiltered] = useState<CongressMember[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,17 +34,27 @@ const CongressList: FC = () => {
       );
     };
     fetchData();
+    setMembersFiltered(members);
   }, []);
 
-  const filteredMembers = (members: CongressMember[], value: string) => {
+  useEffect(() => {}, [members, membersFiltered]);
+
+  const filteredMembers = (
+    members: CongressMember[],
+    value: string,
+    checked: CheckboxItems
+  ) => {
+    console.log(Object.keys(checked));
+    if (Object.keys(checked).toString() === "Name" && Object.values(checked)) {
+      console.log("holis");
+    }
     const membersFiltered = members.filter(member => {
       return Object.values(member)
         .join(" ")
         .toLowerCase()
-        .match(value);
+        .match(value.toLowerCase());
     });
-
-    setMembers(membersFiltered);
+    setMembersFiltered(membersFiltered);
   };
 
   if (!members.length) {
@@ -60,8 +70,8 @@ const CongressList: FC = () => {
           <p className="membersList__titleContainer__title">Gender</p>
           <p className="membersList__titleContainer__title">State</p>
         </div>
-        {members &&
-          members.map((member: CongressMember, index: number) => (
+        {membersFiltered &&
+          membersFiltered.map((member: CongressMember, index: number) => (
             <React.Fragment key={index}>
               <div className="membersList__member">
                 <p className="membersList__member__name">

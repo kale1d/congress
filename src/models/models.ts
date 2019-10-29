@@ -1,3 +1,5 @@
+import { string } from "prop-types";
+
 export interface CongressMember {
   id: string;
   title: string;
@@ -13,4 +15,9 @@ export interface CongressMember {
   youtube_account: string;
   url: string;
   state: string;
+}
+
+export interface CheckboxItems {
+  name: string;
+  key: number;
 }
