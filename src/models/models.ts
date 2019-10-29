@@ -20,4 +20,5 @@ export interface CongressMember {
 export interface CheckboxItems {
   name: string;
   key: number;
+  checked: boolean;
 }

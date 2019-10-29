@@ -42,11 +42,12 @@ const CongressList: FC = () => {
   const filteredMembers = (
     members: CongressMember[],
     value: string,
-    checked: CheckboxItems
+    checkbox: CheckboxItems
   ) => {
-    console.log(Object.keys(checked));
-    if (Object.keys(checked).toString() === "Name" && Object.values(checked)) {
-      console.log("holis");
+    if (checkbox.checked) {
+      if (Object.keys(checkbox)[0] === "Name") {
+        // const membersFiltered =
+      }
     }
     const membersFiltered = members.filter(member => {
       return Object.values(member)

@@ -7,7 +7,7 @@ type Props = {
   onSearch: (
     data: CongressMember[],
     value: string,
-    checked: CheckboxItems
+    checkbox: CheckboxItems
   ) => any;
 };
 
@@ -30,7 +30,8 @@ const SearchInput: FC<Props> = ({ data, onSearch }) => {
   const handleChangeCheckbox = (event: ChangeEvent<HTMLInputElement>) => {
     setCheckedItems({
       ...checkedItems,
-      [event.target.name]: event.target.checked
+      [event.target.name]: event.target.checked,
+      checked: event.target.checked
     });
   };
 
