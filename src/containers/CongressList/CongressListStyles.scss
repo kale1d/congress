@@ -4,7 +4,7 @@
   margin: 16px;
   &__titleContainer {
     display: flex;
-    &__title{
+    &__title {
       width: 25vh;
       display: flex;
       justify-content: flex-start;
@@ -15,15 +15,17 @@
     }
   }
   &__member {
-    width: 25vh;
     display: flex;
-    justify-content: flex-start;
-    flex-flow: wrap;
-    border: 1px solid grey;
-    padding: 8px;
-    box-sizing: border-box;
+
     &__name {
-      color: grey
+      width: 25vh;
+      justify-content: flex-start;
+      flex-flow: wrap;
+      border: 1px solid grey;
+      padding: 8px;
+      margin: 0;
+      box-sizing: border-box;
+      color: grey;
     }
   }
 }
