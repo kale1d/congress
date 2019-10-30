@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "kale1d.github.io/congress/static/css/main.38f37baf.chunk.css",
+    "main.js": "kale1d.github.io/congress/static/js/main.7c09d0c2.chunk.js",
+    "main.js.map": "kale1d.github.io/congress/static/js/main.7c09d0c2.chunk.js.map",
+    "runtime-main.js": "kale1d.github.io/congress/static/js/runtime-main.309e65d2.js",
+    "runtime-main.js.map": "kale1d.github.io/congress/static/js/runtime-main.309e65d2.js.map",
+    "static/css/2.764ccc25.chunk.css": "kale1d.github.io/congress/static/css/2.764ccc25.chunk.css",
+    "static/js/2.c3aa314f.chunk.js": "kale1d.github.io/congress/static/js/2.c3aa314f.chunk.js",
+    "static/js/2.c3aa314f.chunk.js.map": "kale1d.github.io/congress/static/js/2.c3aa314f.chunk.js.map",
+    "index.html": "kale1d.github.io/congress/index.html",
+    "precache-manifest.43b1ac7b16ec33e74ccd16a92cb701dc.js": "kale1d.github.io/congress/precache-manifest.43b1ac7b16ec33e74ccd16a92cb701dc.js",
+    "service-worker.js": "kale1d.github.io/congress/service-worker.js",
+    "static/css/2.764ccc25.chunk.css.map": "kale1d.github.io/congress/static/css/2.764ccc25.chunk.css.map",
+    "static/css/main.38f37baf.chunk.css.map": "kale1d.github.io/congress/static/css/main.38f37baf.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.309e65d2.js",
+    "static/css/2.764ccc25.chunk.css",
+    "static/js/2.c3aa314f.chunk.js",
+    "static/css/main.38f37baf.chunk.css",
+    "static/js/main.7c09d0c2.chunk.js"
+  ]
+}
