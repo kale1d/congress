@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.scss";
 import CongressList from "./containers/CongressList/CongressList";
 import CongressPersonDetail from "./containers/CongressPersonDetail/CongressPersonDetail";

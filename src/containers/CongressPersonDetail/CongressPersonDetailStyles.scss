@@ -23,5 +23,13 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    &-social {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      &-icon {
+        padding-right: 8px;
+      }
+    }
   }
 }
