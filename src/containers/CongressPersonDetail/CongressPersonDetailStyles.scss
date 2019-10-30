@@ -1,0 +1,22 @@
+.memberInfo {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: lemonchiffon;
+  border-radius: 8px;
+  padding: 16px;
+  box-sizing: border-box;
+  &__mainInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__contactInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

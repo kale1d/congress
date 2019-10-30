@@ -3,8 +3,11 @@ import { CongressMember, CheckboxItems } from "../../models/models";
 import "./CongressListStyles.scss";
 import { getMembers } from "../../utils/api";
 import SearchInput from "../../components/SearchInput/SearchInput";
+import { RouteComponentProps } from "react-router";
 
-const CongressList: FC = () => {
+type Props = RouteComponentProps;
+
+const CongressList: FC<Props> = ({ history }) => {
   const [members, setMembers] = useState<CongressMember[]>([]);
   const [membersFiltered, setMembersFiltered] = useState<CongressMember[]>([]);
 
@@ -44,10 +47,15 @@ const CongressList: FC = () => {
     value: string,
     checkbox: CheckboxItems
   ) => {
+    const findFilter = (title: string) => {
+      const filterKeys = Object.keys(checkbox);
+
+      const key = filterKeys.find(element => element === title);
+      console.log(key);
+    };
+
     if (checkbox.checked) {
-      if (Object.keys(checkbox)[0] === "Name") {
-        // const membersFiltered =
-      }
+      findFilter("Name");
     }
     const membersFiltered = members.filter(member => {
       return Object.values(member)
@@ -59,28 +67,40 @@ const CongressList: FC = () => {
   };
 
   if (!members.length) {
-    return <div>Loading</div>;
+    return <div className="loader"></div>;
   }
   return (
     <div className="congressList">
       <SearchInput data={members} onSearch={filteredMembers} />
       <div className="membersList">
         <div className="membersList__titleContainer">
-          <p className="membersList__titleContainer__title">Name</p>
-          <p className="membersList__titleContainer__title">Party</p>
-          <p className="membersList__titleContainer__title">Gender</p>
-          <p className="membersList__titleContainer__title">State</p>
+          <div className="membersList__titleContainer__title">Name</div>
+          <div className="membersList__titleContainer__title">Party</div>
+          <div className="membersList__titleContainer__title">Gender</div>
+          <div className="membersList__titleContainer__title">State</div>
+          <div className="membersList__titleContainer__title">Detail</div>
         </div>
         {membersFiltered &&
           membersFiltered.map((member: CongressMember, index: number) => (
             <React.Fragment key={index}>
               <div className="membersList__member">
-                <p className="membersList__member__name">
+                <div className="membersList__member-name">
                   {member.short_title} {member.first_name} {member.last_name}
-                </p>
-                <p className="membersList__member__name">{member.party}</p>
-                <p className="membersList__member__name">{member.gender}</p>
-                <p className="membersList__member__name">{member.state}</p>
+                </div>
+                <div className="membersList__member-name">{member.party}</div>
+                <div className="membersList__member-name">{member.gender}</div>
+                <div className="membersList__member-name">{member.state}</div>
+                <div
+                  className="membersList__member-name membersList__member-name--viewMore"
+                  onClick={() =>
+                    history.push({
+                      pathname: "/detail",
+                      state: { data: member }
+                    })
+                  }
+                >
+                  View More
+                </div>
               </div>
             </React.Fragment>
           ))}

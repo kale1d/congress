@@ -1,3 +1,82 @@
+// Color variables
+$main: #7a64db;
+$secundary: #801f9b;
+$terchiary: #80a2ad;
+// animation keyframes
+@keyframes mainAnimation {
+  0% {
+    width: 10px;
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+  }
+  20% {
+    width: 10px;
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+  }
+  40% {
+    width: 30px;
+    transform: translateX(-10px) translateY(0px) rotate(0deg);
+  }
+  60% {
+    width: 30px;
+    transform-origin: bottom right;
+    transform: translateX(-30px) translateY(0px) rotate(90deg);
+  }
+  80% {
+    width: 10px;
+    transform: translateX(-5px) translateY(0px) rotate(90deg);
+  }
+  100% {
+    width: 10px;
+    transform: translateX(-10px) translateY(0px) rotate(90deg);
+  }
+}
+@keyframes secundaryAnimation {
+  0% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+  }
+  20% {
+    transform: translateX(0px) translateY(0px) rotate(180deg);
+  }
+  40% {
+    transform: translateX(0px) translateY(0px) rotate(180deg);
+  }
+  60% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+  }
+  80% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateX(0px) translateY(0px) rotate(180deg);
+  }
+}
+.loader {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  left: 50%;
+  margin-top: -5px;
+  margin-left: -5px;
+  background-color: $main;
+  transform: translateX(0px) translateY(0px) rotate(0deg);
+  animation: mainAnimation 2.6s ease 0s infinite forwards;
+  z-index: 2;
+  &:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 0;
+    left: -10px;
+    background-color: $main;
+    transform-origin: top right;
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+    animation: secundaryAnimation 2.6s ease 0s infinite forwards;
+  }
+}
+
 .membersList {
   width: 100%;
   background-color: #fafafa;
@@ -17,7 +96,7 @@
   &__member {
     display: flex;
 
-    &__name {
+    &-name {
       width: 25vh;
       justify-content: flex-start;
       flex-flow: wrap;
@@ -26,6 +105,10 @@
       margin: 0;
       box-sizing: border-box;
       color: grey;
+      &--viewMore {
+        color: blueviolet;
+        cursor: pointer;
+      }
     }
   }
 }
