@@ -18,9 +18,7 @@ const CongressPersonDetail: FC<Props> = ({ location, history }) => {
           <div>
             <h3>Personal Information</h3>
             <span>Name: </span>
-            <span>
-              {memberInfo.first_name} {memberInfo.last_name}
-            </span>
+            <span>{memberInfo.name}</span>
           </div>
           <div>
             <span>Title: </span> <span>{memberInfo.title}</span>

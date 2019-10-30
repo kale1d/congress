@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from "react";
-import { CongressMember, CheckboxItems } from "../../models/models";
+import { CongressMember } from "../../models/models";
 import "./CongressListStyles.scss";
 import { getMembers } from "../../utils/api";
 import SearchInput from "../../components/SearchInput/SearchInput";
@@ -16,14 +16,11 @@ const CongressList: FC<Props> = ({ history }) => {
       const result = await getMembers(116, "senate");
       const data = result.data.results[0].members;
       setMembers(
-        data.map((d: CongressMember) => {
+        data.map((d: any) => {
           return {
             id: d.id,
             title: d.title,
-            short_title: d.short_title,
-            first_name: d.first_name,
-            middle_name: d.middle_name,
-            last_name: d.last_name,
+            name: `${d.first_name} ${d.last_name}`,
             date_of_birth: d.date_of_birth,
             gender: d.gender === "M" ? "Male" : "Female",
             party: d.party === "R" ? "Republican" : "Democrat",
@@ -45,25 +42,26 @@ const CongressList: FC<Props> = ({ history }) => {
   const filteredMembers = (
     members: CongressMember[],
     value: string,
-    checkbox: CheckboxItems
+    radio: string | null
   ) => {
-    const findFilter = (title: string) => {
-      const filterKeys = Object.keys(checkbox);
-
-      const key = filterKeys.find(element => element === title);
-      console.log(key);
-    };
-
-    if (checkbox.checked) {
-      findFilter("Name");
+    if (radio) {
+      const filter = radio;
+      const keyword = value;
+      const filteredData = members.filter((obj: any) => {
+        return String(obj[filter])
+          .toLowerCase()
+          .startsWith(keyword);
+      });
+      setMembersFiltered(filteredData);
+    } else {
+      const membersFiltered = members.filter(member => {
+        return Object.values(member)
+          .join(" ")
+          .toLowerCase()
+          .match(value.toLowerCase());
+      });
+      setMembersFiltered(membersFiltered);
     }
-    const membersFiltered = members.filter(member => {
-      return Object.values(member)
-        .join(" ")
-        .toLowerCase()
-        .match(value.toLowerCase());
-    });
-    setMembersFiltered(membersFiltered);
   };
 
   if (!members.length) {
@@ -74,19 +72,17 @@ const CongressList: FC<Props> = ({ history }) => {
       <SearchInput data={members} onSearch={filteredMembers} />
       <div className="membersList">
         <div className="membersList__titleContainer">
-          <div className="membersList__titleContainer__title">Name</div>
-          <div className="membersList__titleContainer__title">Party</div>
-          <div className="membersList__titleContainer__title">Gender</div>
-          <div className="membersList__titleContainer__title">State</div>
-          <div className="membersList__titleContainer__title">Detail</div>
+          <div className="membersList__titleContainer-title">Name</div>
+          <div className="membersList__titleContainer-title">Party</div>
+          <div className="membersList__titleContainer-title">Gender</div>
+          <div className="membersList__titleContainer-title">State</div>
+          <div className="membersList__titleContainer-title">Detail</div>
         </div>
         {membersFiltered &&
           membersFiltered.map((member: CongressMember, index: number) => (
             <React.Fragment key={index}>
               <div className="membersList__member">
-                <div className="membersList__member-name">
-                  {member.short_title} {member.first_name} {member.last_name}
-                </div>
+                <div className="membersList__member-name">{member.name}</div>
                 <div className="membersList__member-name">{member.party}</div>
                 <div className="membersList__member-name">{member.gender}</div>
                 <div className="membersList__member-name">{member.state}</div>
