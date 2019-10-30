@@ -47,6 +47,7 @@ const CongressPersonDetail: FC<Props> = ({ location }) => {
               width="42"
               height="42"
             />
+            Youtube
           </span>
         </div>
       </div>
