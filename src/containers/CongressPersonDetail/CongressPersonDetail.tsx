@@ -7,14 +7,16 @@ type Props = RouteComponentProps;
 
 const CongressPersonDetail: FC<Props> = ({ location, history }) => {
   const memberInfo: CongressMember = location.state.data;
-  console.log(memberInfo);
   return (
-    <div>
-      <div onClick={() => history.goBack()} className="backButton">
+    <div className="memberWrapper">
+      <div
+        onClick={() => history.goBack()}
+        className="memberWrapper-backButton"
+      >
         Back
       </div>
-      <div className="memberInfo">
-        <div className="memberInfo__mainInfo">
+      <div className="memberWrapper__memberInfo">
+        <div className="memberWrapper__memberInfo__mainInfo">
           <div>
             <h3>Personal Information</h3>
             <span>Name: </span>
@@ -30,7 +32,7 @@ const CongressPersonDetail: FC<Props> = ({ location, history }) => {
             <span>State: </span> <span>{memberInfo.state}</span>
           </div>
         </div>
-        <div className="memberInfo__contactInfo">
+        <div className="memberWrapper__memberInfo__contactInfo">
           <h3>Contact Information</h3>
           <div>
             <span>URL: </span>{" "}
@@ -41,8 +43,8 @@ const CongressPersonDetail: FC<Props> = ({ location, history }) => {
             </span>
           </div>
           <h4>Social Media</h4>
-          <div className="memberInfo__contactInfo-social">
-            <span className="memberInfo__contactInfo-social-icon">
+          <div className="memberWrapper__memberInfo__contactInfo-social">
+            <span className="memberWrapper__memberInfo__contactInfo-social-icon">
               <a
                 href={`https://www.youtube.com/${memberInfo.youtube_account}`}
                 target="_blank"
@@ -54,8 +56,8 @@ const CongressPersonDetail: FC<Props> = ({ location, history }) => {
             </span>
             <span>{memberInfo.youtube_account}</span>
           </div>
-          <div className="memberInfo__contactInfo-social">
-            <span className="memberInfo__contactInfo-social-icon">
+          <div className="memberWrapper__memberInfo__contactInfo-social">
+            <span className="memberWrapper__memberInfo__contactInfo-social-icon">
               <a
                 href={`https://www.facebook.com/${memberInfo.facebook_account}`}
                 target="_blank"
@@ -68,8 +70,8 @@ const CongressPersonDetail: FC<Props> = ({ location, history }) => {
             <span>{memberInfo.facebook_account}</span>
           </div>
 
-          <div className="memberInfo__contactInfo-social">
-            <span className="memberInfo__contactInfo-social-icon">
+          <div className="memberWrapper__memberInfo__contactInfo-social">
+            <span className="memberWrapper__memberInfo__contactInfo-social-icon">
               <a
                 href={`https://www.twitter.com/${memberInfo.twitter_account}`}
                 target="_blank"

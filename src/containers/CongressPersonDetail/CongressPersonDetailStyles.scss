@@ -1,34 +1,38 @@
-.backButton {
-  display: flex;
-  justify-content: flex-start;
-  cursor: pointer;
-}
-.memberInfo {
-  width: 50vw;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  background-color: lemonchiffon;
-  border-radius: 8px;
-  padding: 16px;
-  box-sizing: border-box;
-  &__mainInfo {
+.memberWrapper {
+  height: 100vh;
+  &-backButton {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    justify-content: flex-start;
+    cursor: pointer;
   }
 
-  &__contactInfo {
+  &__memberInfo {
+    width: 50vw;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    &-social {
+    justify-content: center;
+    background-color: lemonchiffon;
+    border-radius: 8px;
+    padding: 16px;
+    box-sizing: border-box;
+    &__mainInfo {
       display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      &-icon {
-        padding-right: 8px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__contactInfo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      &-social {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        &-icon {
+          padding-right: 8px;
+        }
       }
     }
   }

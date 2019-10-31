@@ -51,10 +51,10 @@ const SearchInput: FC<Props> = ({ data, onSearch }) => {
           className="searchWrapper-input"
         />
         <div className="searchWrapper-circle"></div>
+        <button className="searchWrapper-advanced" onClick={handleClickToggle}>
+          Advanced Search
+        </button>
       </div>
-      <button className="searchWrapper-advanced" onClick={handleClickToggle}>
-        Advanced Search
-      </button>
       ​
       {isVisible && (
         <div className="options">

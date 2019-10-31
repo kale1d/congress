@@ -1,24 +1,39 @@
 .App {
   text-align: center;
-}
+  &__header {
+    width: 100%;
+    height: 15vh;
+    background-color: grey;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    &-title {
+      margin: 16px;
+      color: white;
+      font-family: "Saira Condensed";
+      font-size: 4em;
+      letter-spacing: 4px;
+    }
+  }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 20vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    background-color: #fafafa;
+  }
 
-.App-link {
-  color: #09d3ac;
-}
-
-.wrapper {
-  display: flex;
-  justify-content: center;
-  background-color: #fafafa;
+  &__footer {
+    height: 15vh;
+    background-color: grey;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    &-text {
+      color: white;
+      font-family: "Saira Condensed";
+      font-size: 1em;
+      letter-spacing: 2px;
+      margin: 10px;
+    }
+  }
 }

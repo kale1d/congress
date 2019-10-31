@@ -1,8 +1,9 @@
 .searchWrapper {
   position: relative;
-  margin: auto;
-  width: 300px;
+  width: 100%;
   height: 100px;
+  display: flex;
+  margin: auto;
   &-circle {
     position: absolute;
     margin: auto;
@@ -17,7 +18,6 @@
     transition: all 1s;
     z-index: 4;
     box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
-    // box-shadow: 0 0 25px 0 #f3a3fa;
     &:hover {
       cursor: pointer;
     }
@@ -108,18 +108,38 @@
     }
   }
   &-advanced {
-    background: #fff;
-    border: 1px solid;
-    color: #000;
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+    border: 1px solid #ff0fa3;
+    color: #ff0fa3;
+    background: none;
     cursor: pointer;
+    padding: 10px 20px;
     display: inline-block;
-    font-size: 16px;
-    font-family: Helvetica Neue;
-    font-weight: 900;
-    font-style: normal;
-    margin-bottom: 20px;
-    padding: 5px 20px 5px 20px;
-    white-space: nowrap;
+    margin: 6px 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    font-size: 0.8em;
+    overflow: hidden;
+    &:hover,
+    &:active {
+      color: #f3a3fa;
+    }
+    &:after {
+      position: relative;
+      width: 101%;
+      height: 0;
+      top: 50%;
+      left: 50%;
+      background: black;
+      opacity: 0;
+      transform: translateX(-50%) translateY(-50%);
+      transition: all 0.3s;
+      box-sizing: border-box;
+    }
   }
 }
 
