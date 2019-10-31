@@ -46,7 +46,7 @@ const CongressList: FC<Props> = ({ history }) => {
   ) => {
     if (radio) {
       const filter = radio;
-      const keyword = value;
+      const keyword = value.toLowerCase();
       const filteredData = members.filter((obj: any) => {
         return String(obj[filter])
           .toLowerCase()

@@ -1,22 +1,10 @@
 import React, { FC } from "react";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.scss";
-import CongressList from "./containers/CongressList/CongressList";
-import CongressPersonDetail from "./containers/CongressPersonDetail/CongressPersonDetail";
-
-export const routes = [
-  {
-    path: "/",
-    component: CongressList
-  },
-  {
-    path: "/detail",
-    component: CongressPersonDetail
-  }
-];
+import { routes } from "./utils/routes";
 
 const App: FC = () => {
-  const rendeRoutes = () => {
+  const renderRoutes = () => {
     return routes.map((route, index) => <Route key={index} exact {...route} />);
   };
   return (
@@ -26,7 +14,7 @@ const App: FC = () => {
           <h1 className="App__header-title">Congress List</h1>
         </header>
         <div className="App__wrapper">
-          <Switch>{rendeRoutes()}</Switch>
+          <Switch>{renderRoutes()}</Switch>
         </div>
         <footer className="App__footer">
           <p className="App__footer-text">A simple react app</p>
